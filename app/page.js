@@ -1,7 +1,12 @@
-export default function Home() {
+import AllGames from "./components/AllGames";
+
+const HomePage = () => {
   return (
     <>
-      <div>Hello, Next.js!</div>
+      <h1>Welcome to the Game Library</h1>
+      <AllGames />
     </>
   );
-}
+};
+
+export default HomePage;

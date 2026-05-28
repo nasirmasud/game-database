@@ -1,4 +1,5 @@
 import { Backpack, Heart, House, LayoutDashboard, SquareLibrary, Users } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const SideBar = () => {
@@ -7,47 +8,49 @@ const SideBar = () => {
       <div>
         {/* Logo */}
         <div className='flex items-center gap-2 mb-10 font-bold text-lg tracking-wider text-blue-400'>
-          <span className='p-1.5 bg-blue-600 text-white rounded'>G:</span>{" "}
-          PLATFORM
+          <Image src={'/logo.png'} alt='IGDB' width={148} height={148} className='mx-auto h-auto' priority />
         </div>
 
         {/* Navigation Links */}
         <nav className='space-y-2'>
+          {/* Active Link (Home) - Text and Icon are Blue */}
           <Link
             href='/'
-            className='flex items-center gap-3 px-4 py-3 bg-[#1f2937] rounded-xl text-sm font-medium'
+            className='flex items-center gap-3 px-4 py-3 bg-[#1f2937] text-blue-400 rounded-xs text-sm font-medium'
           >
-            <House /> Home
+            <House size={18} /> Home
           </Link>
+
+          {/* Other Links - Text and Icons changed to text-blue-500, hovering turns them to light blue */}
           <Link
             href='/category'
-            className='flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-xl text-sm font-medium transition'
+            className='flex items-center gap-3 px-4 py-3 text-blue-500 hover:text-blue-400 rounded-xs text-sm font-medium transition'
           >
-            <LayoutDashboard /> Category
+            <LayoutDashboard size={18} /> Category
           </Link>
           <Link
             href='/library'
-            className='flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-xl text-sm font-medium transition'
+            className='flex items-center gap-3 px-4 py-3 text-blue-500 hover:text-blue-400 rounded-xs text-sm font-medium transition'
           >
-            <SquareLibrary /> Library
+            <SquareLibrary size={18} /> Library
           </Link>
           <Link
             href='/friends'
-            className='flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-xl text-sm font-medium transition'
+            className='flex items-center gap-3 px-4 py-3 text-blue-500 hover:text-blue-400 rounded-xs text-sm font-medium transition'
           >
-            <Users />  Friends
+            <Users size={18} />  Friends
           </Link>
           <Link
             href='/buys'
-            className='flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-xl text-sm font-medium transition'
+            className='flex items-center gap-3 px-4 py-3 text-blue-500 hover:text-blue-400 rounded-xs text-sm font-medium transition'
           >
-            <Backpack /> Buys
+            <Backpack size={18} /> Buys
           </Link>
           <Link
             href='/wishlist'
-            className='flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-xl text-sm font-medium transition'
+            className='flex items-center gap-3 px-4 py-3 text-blue-500 hover:text-blue-400 rounded-xs text-sm font-medium transition'
           >
-            <Heart /> Wishlist
+            <Heart size={18} /> Wishlist
           </Link>
         </nav>
       </div>
@@ -56,12 +59,12 @@ const SideBar = () => {
       <div className='flex items-center gap-3 border-t border-gray-800 pt-4'>
         <div className='w-10 h-10 bg-gray-600 rounded-full'></div>
         <div>
-          <p className='text-sm font-semibold'>User25</p>
-          <p className='text-xs text-gray-500'>user25@gmail.com.</p>
+          {/* Profile text changed to blue shades */}
+          <p className='text-sm font-semibold text-blue-400'>User25</p>
+          <p className='text-xs text-blue-600'>user25@gmail.com</p>
         </div>
       </div>
     </aside>
-
   )
 }
 
