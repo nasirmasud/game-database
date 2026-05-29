@@ -8,7 +8,15 @@ const SideBar = () => {
       <div>
         {/* Logo */}
         <div className='flex items-center gap-2 mb-10 font-bold text-lg tracking-wider text-blue-400'>
-          <Image src={'/logo.png'} alt='IGDB' width={148} height={148} className='mx-auto h-auto' priority />
+          <Image
+            src={'/logo.png'}
+            alt='IGDB'
+            width={148}
+            height={148}
+            priority
+            className='mx-auto'
+            style={{ width: 'auto', height: 'auto' }}
+          />
         </div>
 
         {/* Navigation Links */}
