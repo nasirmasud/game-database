@@ -34,6 +34,7 @@ const HeroSlider = ({ games }) => {
                   alt={game.name}
                   fill
                   priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
                 />
               ) : (
