@@ -3,7 +3,9 @@ import HeroSlider from './HeroSlider';
 
 const AllGames = async () => {
   // স্লাইডারগুলোর জন্য ডাটা ফেচ করা হচ্ছে
-  const heroGames = await FetchRawgData('games', { params: { page_size: 5, ordering: '-metacritic' } });
+  const heroGames = await FetchRawgData("games", {
+    params: { page_size: 5 },
+  });
 
   // ডামি ফ্রেন্ডস ডাটা (আপাতত ডিজাইনের জন্য)
   const friends = [
@@ -13,20 +15,18 @@ const AllGames = async () => {
   ];
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto p-4">
-      {/* মেইন গ্রিড লেআউট: ডেক্সটপে ৩ ভাগে ভাগ হবে (বামে ২ ভাগ, ডানে ১ ভাগ) */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="w-full max-w-[1400px] p-4">
+      {/* 🛠️ পরিবর্তন: মেইন গ্রিড ৩ কলাম থেকে ৪ কলাম (grid-cols-4) করা হলো */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        {/* ─── বাম পাশের মেইন কন্টেন্ট এরিয়া (Col Span 2) ─── */}
-        <div className="lg:col-span-2 space-y-10">
-          {/* হিরো স্লাইডার */}
+        {/* ─── বাম পাশের মেইন কন্টেন্ট এরিয়া (🛠️ পরিবর্তন: col-span-2 থেকে col-span-3 করা হলো) ─── */}
+        <div className="lg:col-span-3 space-y-10">
+          {/* হিরো স্লাইডার এখন আগের চেয়ে অনেক বেশি ওয়াইড দেখাবে */}
           <HeroSlider games={heroGames?.results || []} />
-
-
         </div>
 
-        {/* ─── ডান পাশের সাইডবার এরিয়া (সার্চ এবং ফ্রেন্ডস) ─── */}
-        <div className="space-y-6">
+        {/* ─── ডান পাশের সাইডবার এরিয়া (১ কলাম জায়গা নিয়ে থাকবে) ─── */}
+        <div className="lg:col-span-1 space-y-6">
 
           {/* ১. সার্চ বার সেকশন */}
           <div className="rounded-xs shadow-lg">
@@ -36,13 +36,13 @@ const AllGames = async () => {
                 placeholder="Search games..."
                 className="w-full bg-[#0b0e14] text-white pl-10 pr-4 py-3 rounded-xs border border-gray-800 focus:outline-none focus:border-[#55a6ff] transition text-sm placeholder-gray-500"
               />
-              {/* সার্চ আইকন (ম্যাগনিফাইং গ্লাস) */}
+              {/* সার্চ আইকন */}
               <span className="absolute left-3 top-3.5 text-gray-500 text-sm">🔍</span>
             </div>
           </div>
 
           {/* ২. ফ্রেন্ডস লিস্ট সেকশন */}
-          <div className=" p-5 rounded-xs  shadow-lg">
+          <div className="p-5 rounded-xs shadow-lg bg-[#121620]/40 border border-gray-900">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-md font-bold tracking-wide uppercase text-gray-400 text-xs">Friends Online</h3>
               <span className="bg-[#1e2638] text-xs px-2 py-0.5 rounded-xs text-gray-400">
