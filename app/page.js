@@ -11,7 +11,6 @@ const HomePage = async () => {
   return (
     <main className='min-h-screen bg-[#0b0e14] text-white p-6 font-sans'>
       <AllGames />
-      {/* ট্রেন্ডিং স্লাইডার */}
       <GameCardSlider
         games={trendingGames?.results || []}
         title='Trending now'
